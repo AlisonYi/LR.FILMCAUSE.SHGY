@@ -1,0 +1,26 @@
+package com.shgy.lr_filmcause.servlet.administrator;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/Ad/AdministratorsListServlet")
+public class AdministratorsListServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+          /*
+            //调用AdministratorService完成查询
+        AdministratorService service=new AdministratorServiceImpl();
+        List<User> users = service.findAll();
+        request.setAttribute("users",users);
+        //转发到list.jsp
+        request.getRequestDispatcher("/WeiPinHui/Administrator/Manage_Users/List.jsp").forward(request,response);
+         */
+        response.sendRedirect(request.getContextPath()+"/Ad/FindAdministratorByPageServlet");
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doPost(request,response);
+    }
+}
